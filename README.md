@@ -1,4 +1,9 @@
-# オブジェクトストレージ minio 
+# オブジェクトストレージ MinIO 
+
+シングル構成のMinIOサーバーとフロントのNginxを設定します。
+
+ドメインは　https://minio.labo.local/ です。このアドレスをアクセスするとMinIOコンソールが表示されます。
+
 
 ## 仮想マシンのデプロイ
 
@@ -97,3 +102,18 @@ $ mactl -api http://hv1:8750 -ccf cluster-config.yaml destroy
 ~~~
 
 
+
+## MinIOのクラスタ化
+
+https://min.io/docs/minio/linux/operations/install-deploy-manage/deploy-minio-multi-node-multi-drive.html
+
+
+## MinIOとNginx の設定方法
+
+https://min.io/docs/minio/linux/integrations/setup-nginx-proxy-with-minio.html
+
+
+
+## MinIOの使い方
+
+https://min.io/docs/minio/linux/reference/minio-mc.html
