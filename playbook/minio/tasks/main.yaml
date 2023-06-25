@@ -23,6 +23,57 @@
     group: root
     mode: '0644'
 
+#
+# MinIO用の証明書ディレクトリの作成
+#
+- name: mkdir for certs
+  file:
+    path:  /home/minio/certs
+    state: directory
+    owner: minio
+    group: minio
+    mode: '0755'
+
+- name: mkdir for certs of CA
+  file:
+    path:  /home/minio/certs/CAs
+    state: directory
+    owner: minio
+    group: minio
+    mode: '0700'
+
+#
+# プライベートCA証明書の取得
+#
+- name: Download CA pem
+  get_url:
+    url: "https://{{ ca_ip }}/ca.pem"
+    dest: /home/minio/certs/CAs/labo_local_ca.pem
+    validate_certs: no
+    owner: minio
+    group: minio
+    mode: '0440'
+
+
+- name: Download Web-Site SSL Certs
+  get_url:
+    url:  "https://{{ ca_ip }}/{{ fqdn }}/{{ fqdn }}.crt"
+    dest: "/home/minio/certs/public.crt"
+    validate_certs: no
+    owner: minio
+    group: minio
+    mode: '0440'
+
+
+- get_url:
+    url:  "https://{{ ca_ip }}/{{ fqdn }}/{{ fqdn }}.key"
+    dest: "/home/minio/certs/private.key"
+    validate_certs: no
+    owner: minio
+    group: minio
+    mode: '0440'
+
+
 - name: copy systemd config 
   template:
     src: minio.service

@@ -13,3 +13,5 @@
     - vdisks
     - base_linux
     - minio
+    - download_certs
+    - nginx    

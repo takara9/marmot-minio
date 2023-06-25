@@ -18,6 +18,5 @@ MINIO_VOLUMES="/data{1...4}"
 
 # Uncomment the following line and replace the value with the correct hostname for the local machine.
 
-MINIO_SERVER_URL="http://minio.labo.local:9002"
-
-MINIO_OPTS="--console-address :9001 --address :9002"
+MINIO_SERVER_URL="https://minio.labo.local:9002"
+MINIO_OPTS="--console-address :9001 --address :9002 --certs-dir /home/minio/certs"
