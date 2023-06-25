@@ -117,3 +117,9 @@ https://min.io/docs/minio/linux/integrations/setup-nginx-proxy-with-minio.html
 ## MinIOの使い方
 
 https://min.io/docs/minio/linux/reference/minio-mc.html
+
+
+
+
+
+
