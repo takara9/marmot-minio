@@ -19,8 +19,8 @@ response Status: 200 OK
 
 ~~~
 $ mactl -api http://hv1:8750 -ccf cluster-config.yaml status
-CLUSTER    VM-NAME          H-Visr STAT  VKEY                 VCPU  RAM    PubIP           PriIP           DATA STORAGE        
-test       server1          hv1    RUN   vm_server1_0524      16    16383  172.16.99.101                   100 100 
+CLUSTER    VM-NAME          H-Visr STAT  VKEY                 VCPU  RAM    PubIP           PriIP           DATA STORAGE
+test       server1          hv1    RUN   vm_server1_0524      16    16383  172.16.99.101                   100 100
 ~~~
 
 
@@ -30,11 +30,11 @@ test       server1          hv1    RUN   vm_server1_0524      16    16383  172.1
 ubuntu@hmc:~/marmot-build$ mactl global-status
 
                *** SYSTEM STATUS ***
-HV-NAME    ONL IPaddr          VCPU      RAM(MB)        Storage(GB) 
-hv1        RUN 10.1.0.11          8/24    49153/65536   vg1(ssd):   883/931   vg2(nvme):  1707/1907  vg3(hdd):   931/931   
+HV-NAME    ONL IPaddr          VCPU      RAM(MB)        Storage(GB)
+hv1        RUN 10.1.0.11          8/24    49153/65536   vg1(ssd):   883/931   vg2(nvme):  1707/1907  vg3(hdd):   931/931
 
-CLUSTER    VM-NAME          H-Visr STAT  VKEY                 VCPU  RAM    PubIP           PriIP           DATA STORAGE        
-test       server1          hv1    RUN   vm_server1_0524      16    16383  172.16.99.101                   100 100 
+CLUSTER    VM-NAME          H-Visr STAT  VKEY                 VCPU  RAM    PubIP           PriIP           DATA STORAGE
+test       server1          hv1    RUN   vm_server1_0524      16    16383  172.16.99.101                   100 100
 ~~~
 
 
@@ -57,14 +57,14 @@ server1 | SUCCESS => {
 オブジェクトストレージのセットアップには、以下のコマンドを実行する。
 
 ~~~
-$ ansible-playbook -i inventory playbook/setup.yaml 
+$ ansible-playbook -i inventory playbook/setup.yaml
 ~~~
 
 
 ## 仮想マシンの停止と再開
 
 仮想マシンを停止することで、CPUとメモリのリソースを解放して、他に利用することができる。
-この仮想マシンを停止するには、marmot-buildのディレクトリで`mactl stop`を実行する。 
+この仮想マシンを停止するには、marmot-buildのディレクトリで`mactl stop`を実行する。
 
 ~~~
 $ mactl stop
@@ -75,8 +75,8 @@ $ mactl stop
 
 ~~~
 $ mactl status
-CLUSTER    VM-NAME          H-Visr STAT  VKEY                 VCPU  RAM    PubIP           PriIP           DATA STORAGE        
-test       server1          hv1    STOP  vm_server1_0524      16    16383  172.16.99.101                   100 100 
+CLUSTER    VM-NAME          H-Visr STAT  VKEY                 VCPU  RAM    PubIP           PriIP           DATA STORAGE
+test       server1          hv1    STOP  vm_server1_0524      16    16383  172.16.99.101                   100 100
 ~~~
 
 次のコマンドで、残りのリソースを含めて全体を確認できる。
@@ -85,11 +85,11 @@ test       server1          hv1    STOP  vm_server1_0524      16    16383  172.1
 $ mactl global-status
 
                *** SYSTEM STATUS ***
-HV-NAME    ONL IPaddr          VCPU      RAM(MB)        Storage(GB) 
-hv1        RUN 10.1.0.11         24/24    65536/65536   vg1(ssd):   883/931   vg2(nvme):  1707/1907  vg3(hdd):   931/931   
+HV-NAME    ONL IPaddr          VCPU      RAM(MB)        Storage(GB)
+hv1        RUN 10.1.0.11         24/24    65536/65536   vg1(ssd):   883/931   vg2(nvme):  1707/1907  vg3(hdd):   931/931
 
-CLUSTER    VM-NAME          H-Visr STAT  VKEY                 VCPU  RAM    PubIP           PriIP           DATA STORAGE        
-test       server1          hv1    STOP  vm_server1_0524      16    16383  172.16.99.101                   100 100 
+CLUSTER    VM-NAME          H-Visr STAT  VKEY                 VCPU  RAM    PubIP           PriIP           DATA STORAGE
+test       server1          hv1    STOP  vm_server1_0524      16    16383  172.16.99.101                   100 100
 ~~~
 
 再開は、`mactl start`を実行する。
